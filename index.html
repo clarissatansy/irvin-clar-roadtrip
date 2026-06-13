@@ -156,14 +156,14 @@
   <div class="hero-div"><span class="ln"></span><span class="dt">✦</span><span class="ln"></span></div>
   <p class="hero-quote">"Not all those who wander are lost —<br>but these two found each other anyway."</p>
   <div class="hero-route">
-    <span class="rs">Philadelphia</span><span class="ra">→</span><span class="rs">York</span><span class="ra">→</span><span class="rs">Lancaster</span><span class="ra">→</span><span class="rs">Gettysburg</span><span class="ra">→</span><span class="rs">Shepherdstown</span><span class="ra">→</span><span class="rs">Harpers Ferry</span><span class="ra">→</span><span class="rs">Luray</span><span class="ra">→</span><span class="rs">Shenandoah</span><span class="ra">→</span><span class="rs">Washington DC</span><span class="ra">→</span><span class="rs">Annapolis</span>
+    <span class="rs">Philadelphia</span><span class="ra">→</span><span class="rs">Lancaster</span><span class="ra">→</span><span class="rs">York</span><span class="ra">→</span><span class="rs">Gettysburg</span><span class="ra">→</span><span class="rs">Shepherdstown</span><span class="ra">→</span><span class="rs">Harpers Ferry</span><span class="ra">→</span><span class="rs">Luray</span><span class="ra">→</span><span class="rs">Shenandoah</span><span class="ra">→</span><span class="rs">Washington DC</span><span class="ra">→</span><span class="rs">Annapolis</span>
   </div>
 </div>
 
 <div class="tabs-wrap">
   <div class="tabs">
     <button class="tab active" onclick="showDay(-1)">Overview</button>
-    <button class="tab" onclick="showDay(0)">Day 1 — York, Lancaster & Gettysburg</button>
+    <button class="tab" onclick="showDay(0)">Day 1 — Lancaster, York & Gettysburg</button>
     <button class="tab" onclick="showDay(1)">Day 2 — Shepherdstown, Harpers Ferry & Luray</button>
     <button class="tab" onclick="showDay(2)">Day 3 — Shenandoah</button>
     <button class="tab" onclick="showDay(3)">Day 4 — DC</button>
@@ -206,7 +206,7 @@
       <div class="card-body" style="padding:0;overflow:hidden;border-radius:0 0 6px 6px;position:relative;">
         <div id="route-map" style="height:460px;width:100%;"></div>
         <div style="position:absolute;bottom:12px;right:12px;z-index:1000;">
-          <a href="https://www.google.com/maps/dir/Philadelphia,+PA/York,+PA/Lancaster,+PA/Shepherdstown,+WV/Harpers+Ferry,+WV/Luray,+VA/Shenandoah+National+Park,+VA/Washington,+DC/Annapolis,+MD/Philadelphia,+PA/" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:var(--green-mid);color:#fff;font-family:'Special Elite',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:8px 14px;border-radius:3px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,0.3);">Open in Google Maps →</a>
+          <a href="https://www.google.com/maps/dir/Philadelphia,+PA/Lancaster,+PA/York,+PA/Shepherdstown,+WV/Harpers+Ferry,+WV/Luray,+VA/Shenandoah+National+Park,+VA/Washington,+DC/Annapolis,+MD/Philadelphia,+PA/" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:var(--green-mid);color:#fff;font-family:'Special Elite',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:8px 14px;border-radius:3px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,0.3);">Open in Google Maps →</a>
         </div>
       </div>
     </div>
@@ -218,9 +218,9 @@
         <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:16px;">
           <span style="font-family:'Special Elite',serif;font-size:11px;color:var(--navy);background:var(--green-pale);padding:4px 10px;border-radius:3px;">Philadelphia</span>
           <span style="color:var(--green-mid);font-size:12px;">→ 1.5 hrs →</span>
-          <span style="font-family:'Special Elite',serif;font-size:11px;color:var(--navy);background:var(--blue-pale);padding:4px 10px;border-radius:3px;">York</span>
-          <span style="color:var(--green-mid);font-size:12px;">→ 45 min →</span>
           <span style="font-family:'Special Elite',serif;font-size:11px;color:var(--navy);background:var(--blue-pale);padding:4px 10px;border-radius:3px;">Lancaster</span>
+          <span style="color:var(--green-mid);font-size:12px;">→ 45 min →</span>
+          <span style="font-family:'Special Elite',serif;font-size:11px;color:var(--navy);background:var(--blue-pale);padding:4px 10px;border-radius:3px;">York</span>
           <span style="color:var(--green-mid);font-size:12px;">→ 1 hr →</span>
           <span style="font-family:'Special Elite',serif;font-size:11px;color:var(--navy);background:var(--blue-pale);padding:4px 10px;border-radius:3px;">Shepherdstown</span>
           <span style="color:var(--green-mid);font-size:12px;">→ 10 min →</span>
@@ -239,9 +239,9 @@
         <table style="width:100%;border-collapse:collapse;font-size:13px;">
           <thead><tr style="background:var(--navy);"><th style="font-family:'Special Elite',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:8px 12px;text-align:left;font-weight:normal;color:var(--blue-light);">Leg</th><th style="font-family:'Special Elite',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:8px 12px;text-align:left;font-weight:normal;color:var(--blue-light);">Drive Time</th></tr></thead>
           <tbody>
-            <tr style="border-bottom:1px solid var(--blue-pale);"><td style="padding:10px 12px;color:var(--text-mid);">Philadelphia → York</td><td style="padding:10px 12px;color:var(--text-mid);">~1.5 hrs</td></tr>
-            <tr style="border-bottom:1px solid var(--blue-pale);background:var(--off-white);"><td style="padding:10px 12px;color:var(--text-mid);">York → Lancaster</td><td style="padding:10px 12px;color:var(--text-mid);">~45 mins</td></tr>
-            <tr style="border-bottom:1px solid var(--blue-pale);"><td style="padding:10px 12px;color:var(--text-mid);">Lancaster → Shepherdstown</td><td style="padding:10px 12px;color:var(--text-mid);">~1.5 hrs</td></tr>
+            <tr style="border-bottom:1px solid var(--blue-pale);"><td style="padding:10px 12px;color:var(--text-mid);">Philadelphia → Lancaster</td><td style="padding:10px 12px;color:var(--text-mid);">~1.5 hrs</td></tr>
+            <tr style="border-bottom:1px solid var(--blue-pale);background:var(--off-white);"><td style="padding:10px 12px;color:var(--text-mid);">Lancaster → York</td><td style="padding:10px 12px;color:var(--text-mid);">~45 mins</td></tr>
+            <tr style="border-bottom:1px solid var(--blue-pale);"><td style="padding:10px 12px;color:var(--text-mid);">York → Shepherdstown</td><td style="padding:10px 12px;color:var(--text-mid);">~1.5 hrs</td></tr>
             <tr style="border-bottom:1px solid var(--blue-pale);background:var(--off-white);"><td style="padding:10px 12px;color:var(--text-mid);">Shepherdstown → Harpers Ferry</td><td style="padding:10px 12px;color:var(--text-mid);">~10 mins</td></tr>
             <tr style="border-bottom:1px solid var(--blue-pale);"><td style="padding:10px 12px;color:var(--text-mid);">Harpers Ferry → Luray</td><td style="padding:10px 12px;color:var(--text-mid);">~1.5 hrs</td></tr>
             <tr style="border-bottom:1px solid var(--blue-pale);background:var(--off-white);"><td style="padding:10px 12px;color:var(--text-mid);">Luray → Shenandoah (Thornton Gap)</td><td style="padding:10px 12px;color:var(--text-mid);">~30 mins</td></tr>
@@ -261,7 +261,7 @@
         <div style="height:120px;overflow:hidden;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Central_Market%2C_Lancaster%2C_PA_-_IMG_7736.JPG/1280px-Central_Market%2C_Lancaster%2C_PA_-_IMG_7736.JPG" style="width:100%;height:100%;object-fit:cover;" loading="lazy"></div>
         <div class="card-body">
           <p style="font-family:'Special Elite',serif;font-size:9px;color:var(--green-mid);letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;">Day 1 — Pennsylvania</p>
-          <p style="font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);margin-bottom:6px;">York & Lancaster</p>
+          <p style="font-family:'Playfair Display',serif;font-size:16px;color:var(--navy);margin-bottom:6px;">Lancaster & York</p>
           <p style="font-size:12px;color:var(--text-mid);line-height:1.5;">Lavender farms, dairy farm ice cream, an Utz factory tour, Amish market, and Wyndridge Farm's farm-to-table dinner and craft ciders in a 100-year-old barn.</p>
         </div>
       </div>
@@ -335,8 +335,8 @@
     <div class="day-header">
       <div class="day-badge"><span class="dn">1</span><span class="dw">Day</span></div>
       <div class="day-header-text">
-        <h2>York, Lancaster & Gettysburg</h2>
-        <p class="di">&#9654; Tuesday 11 Aug &nbsp;|&nbsp; Philadelphia → York ~1.5 hrs &nbsp;|&nbsp; York → Lancaster ~45 mins &nbsp;|&nbsp; Lancaster → Gettysburg ~1 hr (drive-through) &nbsp;|&nbsp; → Overnight ~30 mins</p>
+        <h2>Lancaster, York & Gettysburg</h2>
+        <p class="di">&#9654; Tuesday 11 Aug &nbsp;|&nbsp; Philadelphia → Lancaster ~1.5 hrs &nbsp;|&nbsp; Lancaster → York ~45 mins &nbsp;|&nbsp; York → Gettysburg ~1 hr (drive-through) &nbsp;|&nbsp; → Overnight ~30 mins</p>
       </div>
     </div>
 
@@ -753,8 +753,8 @@
   // Route map
   const waypoints = [
     { latlng: [39.9526, -75.1652], label: 'Philadelphia, PA' },
-    { latlng: [39.9626, -76.7277], label: 'York, PA' },
     { latlng: [40.0379, -76.3055], label: 'Lancaster, PA' },
+    { latlng: [39.9626, -76.7277], label: 'York, PA' },
     { latlng: [39.4312, -77.8653], label: 'Shepherdstown, WV' },
     { latlng: [39.3256, -77.7453], label: 'Harpers Ferry, WV' },
     { latlng: [38.6651, -78.4583], label: 'Luray, VA' },
