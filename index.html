@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Irvin & Clar — Honeymoon Road Trip</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -195,6 +197,17 @@
       <div style="background:var(--navy);border-radius:8px;padding:16px;text-align:center;">
         <p style="font-family:'Playfair Display',serif;font-size:28px;color:var(--green-light);line-height:1;">Aug</p>
         <p style="font-family:'Special Elite',serif;font-size:10px;color:var(--blue-light);letter-spacing:2px;text-transform:uppercase;margin-top:4px;">11–15, 2025</p>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="card full" style="margin-bottom:24px;">
+      <div class="card-head"><span class="ci">🗺</span><h3>Driving Route Map</h3></div>
+      <div class="card-body" style="padding:0;overflow:hidden;border-radius:0 0 6px 6px;position:relative;">
+        <div id="route-map" style="height:460px;width:100%;"></div>
+        <div style="position:absolute;bottom:12px;right:12px;z-index:1000;">
+          <a href="https://www.google.com/maps/dir/Philadelphia,+PA/York,+PA/Lancaster,+PA/Shepherdstown,+WV/Harpers+Ferry,+WV/Luray,+VA/Shenandoah+National+Park,+VA/Washington,+DC/Annapolis,+MD/Philadelphia,+PA/" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:var(--green-mid);color:#fff;font-family:'Special Elite',serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:8px 14px;border-radius:3px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,0.3);">Open in Google Maps →</a>
+        </div>
       </div>
     </div>
 
@@ -723,6 +736,55 @@
 </div>
 
 <script>
+  // Route map
+  const waypoints = [
+    { latlng: [39.9526, -75.1652], label: 'Philadelphia, PA' },
+    { latlng: [39.9626, -76.7277], label: 'York, PA' },
+    { latlng: [40.0379, -76.3055], label: 'Lancaster, PA' },
+    { latlng: [39.4312, -77.8653], label: 'Shepherdstown, WV' },
+    { latlng: [39.3256, -77.7453], label: 'Harpers Ferry, WV' },
+    { latlng: [38.6651, -78.4583], label: 'Luray, VA' },
+    { latlng: [38.4755, -78.4535], label: 'Shenandoah NP, VA' },
+    { latlng: [38.9072, -77.0369], label: 'Washington, DC' },
+    { latlng: [38.9784, -76.4922], label: 'Annapolis, MD' },
+  ];
+
+  const map = L.map('route-map', { zoomControl: true, scrollWheelZoom: false });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(map);
+
+  const dotIcon = L.divIcon({
+    className: '',
+    html: `<div style="background:#2e7d46;border:2px solid #fff;border-radius:50%;width:12px;height:12px;box-shadow:0 1px 4px rgba(0,0,0,.5);"></div>`,
+    iconSize: [12, 12], iconAnchor: [6, 6]
+  });
+
+  waypoints.forEach(wp => {
+    L.marker(wp.latlng, { icon: dotIcon })
+      .addTo(map)
+      .bindTooltip(wp.label, { permanent: false, direction: 'top', offset: [0, -8] });
+  });
+
+  // Fit map to waypoints
+  const bounds = L.latLngBounds(waypoints.map(wp => wp.latlng));
+  map.fitBounds(bounds, { padding: [40, 40] });
+
+  // Show fallback dashed line immediately, replace with real route when loaded
+  const fallback = L.polyline(waypoints.map(wp => wp.latlng), { color: '#2e7d46', weight: 3, dashArray: '8,6', opacity: 0.6 }).addTo(map);
+
+  // Fetch real driving route from OSRM
+  const coords = waypoints.map(wp => `${wp.latlng[1]},${wp.latlng[0]}`).join(';');
+  fetch(`https://router.project-osrm.org/route/v1/driving/${coords}?overview=full&geometries=geojson`)
+    .then(r => r.json())
+    .then(data => {
+      map.removeLayer(fallback);
+      L.geoJSON(data.routes[0].geometry, {
+        style: { color: '#2e7d46', weight: 4, opacity: 0.85 }
+      }).addTo(map);
+    })
+    .catch(() => {});
+
   function showDay(idx) {
     document.querySelectorAll('.day-panel').forEach((p,i) => {
       if (idx === -1) p.classList.toggle('active', p.id === 'day-overview');
